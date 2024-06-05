@@ -16,13 +16,15 @@ extension String {
 
         // Fix images.
         absolute.replace(#/src="(?<path>\/[^"]+)/#) { match in
-            let fullURL = url.appending(path: match.output.path).absoluteString
+            let fullURL = url.appendingPathComponent(String(match.output.path)).absoluteString
+//            let fullURL = url.appending(path: match.output.path).absoluteString
             return "src=\"\(fullURL)"
         }
 
         // Fix links.
         absolute.replace(#/href="(?<path>\/[^"]+)/#) { match in
-            let fullURL = url.appending(path: match.output.path).absoluteString
+            let fullURL = url.appendingPathComponent(String(match.output.path)).absoluteString
+//            let fullURL = url.appending(path: match.output.path).absoluteString
             return "href=\"\(fullURL)"
         }
 
