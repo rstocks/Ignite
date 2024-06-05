@@ -140,8 +140,8 @@ public struct Content {
         if let customPath = metadata["path"] as? String {
             path = customPath
         } else {
-            let basePath = context.contentDirectory.path()
-            let thisPath = url.deletingPathExtension().path()
+            let basePath = context.contentDirectory.path
+            let thisPath = url.deletingPathExtension().path
             path = String(thisPath.trimmingPrefix(basePath))
         }
 
