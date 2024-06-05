@@ -30,7 +30,8 @@ public struct Include: BlockElement {
     /// - Parameter context: The current publishing context.
     /// - Returns: The HTML for this element.
     public func render(context: PublishingContext) -> String {
-        let fileURL = context.includesDirectory.appending(path: filename)
+        let fileURL = context.includesDirectory.appendingPathComponent(filename)
+//        let fileURL = context.includesDirectory.appending(path: filename)
 
         do {
             let string = try String(contentsOf: fileURL)
